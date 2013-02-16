@@ -36,6 +36,8 @@ void printSumDifference()
 
 int main(int argc, char** argv)
 {
+	//double sum = computeVectorSum(3);
+	//printf("%lf\n",sum);
 	printSumDifference();
 	return 0;
 }
