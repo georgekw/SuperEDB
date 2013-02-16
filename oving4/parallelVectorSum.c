@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <omp.h>
 
 double getVectorElement(int n)
 {
@@ -27,6 +28,7 @@ void printSumDifference()
 {
 	int n;
 	int k;
+	#pragma omp parallel for schedule (static)
 	for (k=4;k<=14;k++)
 	{
 		n = pow(2,k);
@@ -36,8 +38,6 @@ void printSumDifference()
 
 int main(int argc, char** argv)
 {
-	//double sum = computeVectorSum(3);
-	//printf("%lf\n",sum);
 	printSumDifference();
 	return 0;
 }
