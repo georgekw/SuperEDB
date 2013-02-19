@@ -2,40 +2,55 @@
 #include <stdio.h>
 #include <math.h>
 
-double getVectorElement(int n)
+double S()
 {
-	return 1/pow(n,2.0);
+	double pi = 3.14159265358979;
+	return pow(pi, 2.0)/6.0;
 }
 
-double computeVectorSum(int n)
+double v(int i)
 {
-	int i;
-	double sum;
-	for (i=1;i<=n;i++)
-		sum += getVectorElement(i);
+	return 1.0/pow(i, 2.0);
+}
+
+double *vector(int n)
+{
+	double *vector = malloc(n*sizeof(double));
+
+	for (int i = 0; i < n; ++i)
+	{
+		vector[i] = v(i+1); 
+	}
+	return vector;
+}
+
+double sum(double *v, int n)
+{
+	double sum = 0.0;
+
+	for (int i = 0; i < n; ++i)
+	{
+		sum += v[i];
+	}
 	return sum;
 }
 
-double computeSumDifference(double sum)
+void differencePrint()
 {
-	double pi = atan(1)*4;
-	double s = pow(pi,2)/6;
-	return s-sum;
-}
+	int n = pow(2, 14);
+	double *v = vector(n);
 
-void printSumDifference()
-{
-	int n;
-	int k;
-	for (k=4;k<=14;k++)
+	for (int k = 4; k <= 14; ++k)
 	{
-		n = pow(2,k);
-		printf("%lf\n",computeSumDifference(computeVectorSum(n)));
+		printf("%lf\n", S() - sum(&v[0], pow(2, k)));
 	}
+	free(v);
 }
 
 int main(int argc, char** argv)
 {
-	printSumDifference();
+	printf("Seriel Difference Print Test\n");
+	printf("======================================\n");
+	differencePrint();
 	return 0;
 }
