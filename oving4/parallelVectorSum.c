@@ -3,11 +3,7 @@
 #include <math.h>
 #include <omp.h>
 
-double S()
-{
-	double pi = 3.14159265358979;
-	return pow(pi, 2.0)/6.0;
-}
+#define S 1.644934067
 
 double v(int i)
 {
@@ -46,7 +42,7 @@ void differencePrint()
 	for (int k = 4; k <= 14; ++k)
 	{
 		double *v = vector(pow(2, k));
-		differenceVector[k-4] = S() - sum(&v[0], pow(2, k));
+		differenceVector[k-4] = S - sum(&v[0], pow(2, k));
 		free(v);
 	}
 	//Non parallelized for loop made to print values in decending order.

@@ -2,11 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 
-double S()
-{
-	double pi = 3.14159265358979;
-	return pow(pi, 2.0)/6.0;
-}
+#define S 1.644934067
 
 double v(int i)
 {
@@ -42,14 +38,14 @@ void differencePrint()
 
 	for (int k = 4; k <= 14; ++k)
 	{
-		printf("%lf\n", S() - sum(&v[0], pow(2, k)));
+		printf("%lf\n", S - sum(&v[0], pow(2, k)));
 	}
 	free(v);
 }
 
 int main(int argc, char** argv)
 {
-	printf("Seriel Difference Print Test\n");
+	printf("Serial Difference Print Test\n");
 	printf("======================================\n");
 	differencePrint();
 	return 0;
