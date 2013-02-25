@@ -37,7 +37,7 @@ double sum(double *v, int n)
 
 int main(int argc, char **argv)
 {
-	int rank, size, n, nbyP;
+	int rank, size, nbyP;
 	double subsum, globalsum;
 	double *vector;
 	
